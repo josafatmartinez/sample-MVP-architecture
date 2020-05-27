@@ -13,6 +13,7 @@
 		8090D7C7247E2BA200D2F020 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8090D7C5247E2BA200D2F020 /* Main.storyboard */; };
 		8090D7C9247E2BA800D2F020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8090D7C8247E2BA800D2F020 /* Assets.xcassets */; };
 		8090D7CC247E2BA800D2F020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8090D7CA247E2BA800D2F020 /* LaunchScreen.storyboard */; };
+		8090D7DB247E2EBC00D2F020 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090D7DA247E2EBC00D2F020 /* UserPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8090D7C8247E2BA800D2F020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8090D7CB247E2BA800D2F020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8090D7CD247E2BA800D2F020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8090D7DA247E2EBC00D2F020 /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,72 @@
 		8090D7BE247E2BA200D2F020 /* sampleMVParchitecture */ = {
 			isa = PBXGroup;
 			children = (
-				8090D7BF247E2BA200D2F020 /* AppDelegate.swift */,
-				8090D7C1247E2BA200D2F020 /* SceneDelegate.swift */,
-				8090D7C3247E2BA200D2F020 /* ViewController.swift */,
-				8090D7C5247E2BA200D2F020 /* Main.storyboard */,
-				8090D7C8247E2BA800D2F020 /* Assets.xcassets */,
-				8090D7CA247E2BA800D2F020 /* LaunchScreen.storyboard */,
+				8090D7D9247E2E5500D2F020 /* DataSource */,
+				8090D7D8247E2E4E00D2F020 /* Model */,
+				8090D7D7247E2E4500D2F020 /* Presenter */,
+				8090D7D5247E2DEE00D2F020 /* Delegate */,
+				8090D7D3247E2D9100D2F020 /* ViewController */,
+				8090D7D4247E2DCA00D2F020 /* Storyboard */,
+				8090D7D6247E2DFC00D2F020 /* Resources */,
 				8090D7CD247E2BA800D2F020 /* Info.plist */,
 			);
 			path = sampleMVParchitecture;
+			sourceTree = "<group>";
+		};
+		8090D7D3247E2D9100D2F020 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8090D7C3247E2BA200D2F020 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8090D7D4247E2DCA00D2F020 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				8090D7C5247E2BA200D2F020 /* Main.storyboard */,
+				8090D7CA247E2BA800D2F020 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		8090D7D5247E2DEE00D2F020 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				8090D7BF247E2BA200D2F020 /* AppDelegate.swift */,
+				8090D7C1247E2BA200D2F020 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		8090D7D6247E2DFC00D2F020 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8090D7C8247E2BA800D2F020 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8090D7D7247E2E4500D2F020 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8090D7DA247E2EBC00D2F020 /* UserPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8090D7D8247E2E4E00D2F020 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8090D7D9247E2E5500D2F020 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +136,7 @@
 				8090D7B8247E2BA200D2F020 /* Sources */,
 				8090D7B9247E2BA200D2F020 /* Frameworks */,
 				8090D7BA247E2BA200D2F020 /* Resources */,
+				8090D7DC247E2F3E00D2F020 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -133,12 +193,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8090D7DC247E2F3E00D2F020 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8090D7B8247E2BA200D2F020 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8090D7C4247E2BA200D2F020 /* ViewController.swift in Sources */,
+				8090D7DB247E2EBC00D2F020 /* UserPresenter.swift in Sources */,
 				8090D7C0247E2BA200D2F020 /* AppDelegate.swift in Sources */,
 				8090D7C2247E2BA200D2F020 /* SceneDelegate.swift in Sources */,
 			);
