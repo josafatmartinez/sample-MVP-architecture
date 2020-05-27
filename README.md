@@ -18,96 +18,102 @@
 
 Defining the model of methods that adapt to a particular functionality task.
 
+    ```swift
     protocol UserDelegate: NSObjectProtocol {
         func showProgress()
         func hideProgress()
         func signinDidSucceed()
         func signinDidFailed(message: String)
     }
+    ```
 
 ## [UserPresenter.swift](https://github.com/JosafatCMtz/sample-MVP-architecture/blob/master/sampleMVParchitecture/Presenter/UserPresenter.swift).
 
 Retrieves data from the Model, and formats it for display in the View.
 
-        class UserPresenter {
-            weak var delegate: UserDelegate?
+    ```swift
+    class UserPresenter {
+        weak var delegate: UserDelegate?
 
-            init(delegate: UserDelegate) {
-                self.delegate = delegate
+        init(delegate: UserDelegate) {
+            self.delegate = delegate
+        }
+
+        func register(username: String, password: String) {
+            self.delegate?.showProgress()
+            if username.isEmpty {
+                print("email can't be blank")
+                self.delegate?.signinDidFailed(message: "email can't be blank")
             }
+            let delay = DispatchTime.now() + Double(Int64(Double(NSEC_PER_SEC)*2)) / Double(NSEC_PER_SEC)
 
-            func register(username: String, password: String) {
-                self.delegate?.showProgress()
-                if username.isEmpty {
-                    print("email can't be blank")
-                    self.delegate?.signinDidFailed(message: "email can't be blank")
-                }
-                let delay = DispatchTime.now() + Double(Int64(Double(NSEC_PER_SEC)*2)) / Double(NSEC_PER_SEC)
-
-                DispatchQueue.main.asyncAfter(deadline: delay) {
-                    self.delegate?.hideProgress()
-                    self.delegate?.signinDidSucceed()
-                }
+            DispatchQueue.main.asyncAfter(deadline: delay) {
+                self.delegate?.hideProgress()
+                self.delegate?.signinDidSucceed()
             }
         }
+    }
+    ```
 
 ## [ViewController.swift](https://github.com/JosafatCMtz/sample-MVP-architecture/blob/master/sampleMVParchitecture/ViewController/ViewController.swift)
 
 A container view controller embeds the content of other view controllers into its root view.
 
-    class ViewController: UIViewController {
-        // MARK: - IBOutlets
+    ```swift
+        class ViewController: UIViewController {
+            // MARK: - IBOutlets
 
-        @IBOutlet var usernameTextFild: UITextField!
-        @IBOutlet var passwordTextField: UITextField!
-        @IBOutlet weak var spinner: UIActivityIndicatorView!
-        @IBOutlet weak var signinButton: UIButton!
+            @IBOutlet var usernameTextFild: UITextField!
+            @IBOutlet var passwordTextField: UITextField!
+            @IBOutlet weak var spinner: UIActivityIndicatorView!
+            @IBOutlet weak var signinButton: UIButton!
 
-        // MARK: - Properties
+            // MARK: - Properties
 
-        var userPresenter: UserPresenter!
+            var userPresenter: UserPresenter!
 
-        // MARK: - viewDidLoad
+            // MARK: - viewDidLoad
 
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            // Do any additional setup after loading the view.
-            self.userPresenter = UserPresenter(delegate: self)
-            guard let spinner = self.spinner else { return }
-            spinner.hidesWhenStopped = true
+            override func viewDidLoad() {
+                super.viewDidLoad()
+                // Do any additional setup after loading the view.
+                self.userPresenter = UserPresenter(delegate: self)
+                guard let spinner = self.spinner else { return }
+                spinner.hidesWhenStopped = true
+            }
+
+            // MARK: - IBActions
+            @IBAction func buttonSignInDidTap() {
+                guard let presenter = userPresenter else { return }
+                guard let username = usernameTextFild.text else { return }
+                guard let password = passwordTextField.text else { return }
+                presenter.register(username: username, password: password)
+            }
         }
+        extension ViewController: UserDelegate {
+            func signinDidSucceed() {
+                signinButton.setTitle("Success", for: .normal)
+                signinButton.setTitleColor(.green, for: .normal)
+                usernameTextFild.text = ""
+                passwordTextField.text = ""
+            }
 
-        // MARK: - IBActions
-        @IBAction func buttonSignInDidTap() {
-            guard let presenter = userPresenter else { return }
-            guard let username = usernameTextFild.text else { return }
-            guard let password = passwordTextField.text else { return }
-            presenter.register(username: username, password: password)
-        }
-    }
-    extension ViewController: UserDelegate {
-        func signinDidSucceed() {
-            signinButton.setTitle("Success", for: .normal)
-            signinButton.setTitleColor(.green, for: .normal)
-            usernameTextFild.text = ""
-            passwordTextField.text = ""
-        }
+            func signinDidFailed(message: String) {
+                usernameTextFild.placeholder = message
+            }
 
-        func signinDidFailed(message: String) {
-            usernameTextFild.placeholder = message
-        }
+            func showProgress() {
+                guard let spinner = self.spinner else { return }
+                spinner.startAnimating()
+            }
 
-        func showProgress() {
-            guard let spinner = self.spinner else { return }
-            spinner.startAnimating()
-        }
+            func hideProgress() {
+                guard let spinner = self.spinner else { return }
+                spinner.stopAnimating()
+            }
 
-        func hideProgress() {
-            guard let spinner = self.spinner else { return }
-            spinner.stopAnimating()
         }
-
-    }
+    ```
 
 # Security Policy
 
@@ -118,10 +124,7 @@ currently being supported with security updates.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 5.0.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
