@@ -12,8 +12,9 @@
 		8090D7C4247E2BA200D2F020 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090D7C3247E2BA200D2F020 /* ViewController.swift */; };
 		8090D7C7247E2BA200D2F020 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8090D7C5247E2BA200D2F020 /* Main.storyboard */; };
 		8090D7C9247E2BA800D2F020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8090D7C8247E2BA800D2F020 /* Assets.xcassets */; };
-		8090D7CC247E2BA800D2F020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8090D7CA247E2BA800D2F020 /* LaunchScreen.storyboard */; };
 		8090D7DB247E2EBC00D2F020 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090D7DA247E2EBC00D2F020 /* UserPresenter.swift */; };
+		8090D7DE247E305A00D2F020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8090D7DD247E305A00D2F020 /* LaunchScreen.storyboard */; };
+		8090D7E1247E31B000D2F020 /* UserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8090D7E0247E31B000D2F020 /* UserDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +24,10 @@
 		8090D7C3247E2BA200D2F020 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8090D7C6247E2BA200D2F020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8090D7C8247E2BA800D2F020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8090D7CB247E2BA800D2F020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8090D7CD247E2BA800D2F020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8090D7DA247E2EBC00D2F020 /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
+		8090D7DD247E305A00D2F020 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8090D7E0247E31B000D2F020 /* UserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		8090D7BE247E2BA200D2F020 /* sampleMVParchitecture */ = {
 			isa = PBXGroup;
 			children = (
+				8090D7DF247E319F00D2F020 /* View */,
 				8090D7D9247E2E5500D2F020 /* DataSource */,
 				8090D7D8247E2E4E00D2F020 /* Model */,
 				8090D7D7247E2E4500D2F020 /* Presenter */,
@@ -82,7 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				8090D7C5247E2BA200D2F020 /* Main.storyboard */,
-				8090D7CA247E2BA800D2F020 /* LaunchScreen.storyboard */,
+				8090D7DD247E305A00D2F020 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -124,6 +127,14 @@
 			children = (
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		8090D7DF247E319F00D2F020 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8090D7E0247E31B000D2F020 /* UserDelegate.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8090D7CC247E2BA800D2F020 /* LaunchScreen.storyboard in Resources */,
+				8090D7DE247E305A00D2F020 /* LaunchScreen.storyboard in Resources */,
 				8090D7C9247E2BA800D2F020 /* Assets.xcassets in Resources */,
 				8090D7C7247E2BA200D2F020 /* Main.storyboard in Resources */,
 			);
@@ -222,6 +233,7 @@
 				8090D7DB247E2EBC00D2F020 /* UserPresenter.swift in Sources */,
 				8090D7C0247E2BA200D2F020 /* AppDelegate.swift in Sources */,
 				8090D7C2247E2BA200D2F020 /* SceneDelegate.swift in Sources */,
+				8090D7E1247E31B000D2F020 /* UserDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,14 +246,6 @@
 				8090D7C6247E2BA200D2F020 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8090D7CA247E2BA800D2F020 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8090D7CB247E2BA800D2F020 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
