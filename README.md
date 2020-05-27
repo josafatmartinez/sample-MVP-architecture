@@ -2,9 +2,7 @@
 
 ![Twitter Follow](https://img.shields.io/twitter/follow/iamjosafatmtz?style=social) ![josa](https://img.shields.io/github/followers/JosafatCMtz?style=social) ![josa](https://img.shields.io/badge/%F0%9F%93%B1%20JosafatMtz-Happy%20Hacking-blue) ![swift](https://img.shields.io/badge/Swift-v5-orange) ![xcode](https://img.shields.io/badge/Xcode-v11.5-orange)
 
-<img src="./docs/start.png" alt="drawing" width="200"/>
-
-<img src="./docs/demo-test.gif" alt="drawing" width="200"/>
+<img src="./docs/start.png" alt="drawing" width="175"/> <img src="./docs/demo-test.gif" alt="drawing" width="175" />
 
 **MVP** is an architectural pattern, a derivation of the Model–View–Controller. It's represented by three distinct components: Model, View and the Presenter. It was engineered to facilitate automated unit testing and improve the separation of concerns in presentation logic.
 
