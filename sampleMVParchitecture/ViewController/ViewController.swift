@@ -41,6 +41,9 @@ class ViewController: UIViewController {
 extension ViewController: UserDelegate {
     func signinDidSucceed() {
         signinButton.setTitle("Success", for: .normal)
+        signinButton.setTitleColor(.green, for: .normal)
+        usernameTextFild.text = ""
+        passwordTextField.text = ""
     }
     
     func signinDidFailed(message: String) {
